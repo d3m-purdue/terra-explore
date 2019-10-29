@@ -1,0 +1,299 @@
+---
+title: "Exploration"
+author: "Ryan Hafen"
+date: "2019-10-28"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+In this exploratory analysis we are working with the data we processed [here](data.html).
+
+```{r, message=FALSE}
+library(tidyverse)
+
+dat <- readRDS("output/s4_data.rds")
+dat
+```
+
+## Grid Exploration
+
+There are `dat %>% select(range, column) %>% distinct()` grid cells in total, defined by `range` and `column`.
+
+### Unique cultivars per grid cell
+
+A simple check to do up front is to see if cultivar is unique per grid cell.
+
+```{r}
+dat %>%
+  distinct(range, column, cultivar) %>%
+  group_by(range, column) %>%
+  tally() %>%
+  arrange(-n)
+```
+
+This verifies that there is only one unique cultivar per grid cell. This is true for NA cultivars as well.
+
+### How many grid cells do cultivars show up in?
+
+```{r, fig.width=7, fig.height = 4.4}
+gc_cult <- dat %>%
+  distinct(range, column, cultivar) %>%
+  group_by(cultivar) %>%
+  tally() %>%
+  arrange(-n)
+
+gc_cult
+
+ggplot(gc_cult[-1, ], aes(sample = n)) +
+  geom_qq(distribution = stats::qunif) +
+  theme_bw() +
+  labs(x = "proportion", y = "number of grid cells")
+```
+
+There are 94 grid cells with NA as the cultivar, but for known cultivars the maximum is presence in 6 cells, with presence in 2 cells being the most common (about 70% of cultivars are in 2 cells).
+
+### Measurements per grid cell
+
+We know measurements are taken of the various variables on different days. To get a feel for the prevalence of measurement across the grid, we'll first transform our data into long format, with one row per measurement, instead of multiple columns for each variable measured.
+
+```{r}
+dat_long <- dat %>%
+  select(-ends_with("_n")) %>%
+  pivot_longer(cols = canopy_height:leaf_angle_mean,
+    names_to = "variable") %>%
+  filter(!is.na(value))
+
+dat_long
+```
+
+Now we can count how many times each variable is observed in each cell.
+
+```{r, fig.width = 9.25, fig.height = 7}
+grd <- dat_long %>%
+  group_by(range, column, variable) %>%
+  tally()
+
+ggplot(grd, aes(column, range, fill = n)) +
+  geom_tile(height = 1, width = 1, color = "#ffffff") +
+  facet_grid(~ variable) +
+  scale_fill_viridis_c() +
+  theme_bw()
+```
+
+Canopy height has data for range = 2 where the rest do not. It turns out that all of the cases were range = 2 have cultivar as NA. Also, Canopy does not have data for range = 54 while the rest do. Also, at range = 30, canopy height has columns with a lot of recorded data (up to 57 for column 5).
+
+There is no column 16 for canopy height and for the rest of the variables column 16 is pretty sparse.
+
+The higher-range data seem to have more counts overall. We can check this by computing the marginal counts.
+
+### Marginal counts
+
+Below is a plot of total number of measurements for each range.
+
+```{r, fig.width = 10, fig.height = 6}
+range_ct <- dat_long %>%
+  group_by(range, variable) %>%
+  tally()
+
+ggplot(range_ct, aes(range, n)) +
+  geom_col(width = 1) +
+  facet_grid(~ variable) +
+  theme_bw()
+```
+
+As was hinted at in the previous heatmap, there are more measurements in the higher ranges.
+
+Similarly for columns:
+
+```{r, fig.width = 10, fig.height = 6}
+column_ct <- dat_long %>%
+  group_by(column, variable) %>%
+  tally()
+
+ggplot(column_ct, aes(column, n)) +
+  geom_col(width = 1) +
+  facet_grid(~ variable) +
+  theme_bw()
+```
+
+There are more measurements of canopy height overall than the other variables. Columns 1 and 2 have more measurements than the other columns for all veriables except canopy height, where column 1 has fewer measurements.
+
+### Co-occurrence of variables
+
+Another useful piece of information is how many cells have at least one data point for all 5 variables? Just 4 variables? etc.?
+
+```{r, fig.height = 7, fig.width = 3.5}
+cell_n_vars <- dat_long %>%
+  group_by(range, column) %>%
+  summarise(n = as.character(length(unique(variable))))
+
+ggplot(cell_n_vars, aes(column, range, fill = n)) +
+  geom_tile(height = 1, width = 1, color = "#ffffff") +
+  scale_fill_viridis_d() +
+  theme_bw()
+```
+
+From this we see that the vast majority of grid cells have at least one measurement of all five variables.
+
+Now we might be interested in knowing how many days there are in each grid cell for which we have measurements for all 5 variables.
+
+```{r, fig.width=7, fig.height = 4.4}
+cell_n_full_days <- dat_long %>%
+  group_by(range, column, day) %>%
+  summarise(n = length(unique(variable))) %>%
+  filter(n == 5) %>%
+  ungroup() %>%
+  group_by(range, column) %>%
+  tally()
+
+ggplot(cell_n_full_days, aes(sample = n)) +
+  geom_qq(distribution = stats::qunif) +
+  theme_bw() +
+  labs(
+    x = "proportion",
+    y = "number of fully co-occurrent days")
+```
+
+```{r, eval=FALSE, echo=FALSE}
+ggplot(cell_n_full_days, aes(column, range, fill = n)) +
+  geom_tile(height = 1, width = 1, color = "#ffffff") +
+  scale_fill_viridis_c() +
+  theme_bw()
+```
+
+Here a plot of the grid isn't that interesting, but instead we are looking at a plot of the distribution of the number of days. This shows that about 50% of grid cells have 15 or more days of fully co-occurrent variable measurements, but some grid sells have 5 or fewer days that are fully co-occurrent.
+
+### Meaurements over time
+
+To get a feel for how the variables behave over time, let's look at each variable for each cultivar. 
+
+There is a bit of preparation to make the plot look the way we want it to, as we need to join data across different grid cells for a given cultivar, we want to compare each variable to the overall mean trajectory across all the data, and we want scale comparisons for each variable to be commensurate as we look at different cultivars. If you're not interested in the code, skip down to the visuals.
+
+```{r, eval=FALSE}
+# compute overall range of day and each variable across the entire dataset
+rngs_day <- tibble(
+  variable = rep(unique(dat_long$variable), 2),
+  value = NA,
+  day = rep(range(dat_long$day), each = 5)
+)
+
+rngs <- dat_long %>%
+  group_by(variable) %>%
+  summarise(value = list(c(min(value), max(value)))) %>%
+  unnest(value) %>%
+  mutate(day = NA) %>%
+  bind_rows(rngs_day) %>%
+  mutate(series = "1")
+
+# apply loess to each variable to get overall mean trajectories
+tmp <- dat_long %>%
+  select(variable, day, value) %>%
+  group_by(variable) %>%
+  nest() %>%
+  mutate(fit = map2(data, variable, function(x, v) {
+    span <- 0.75
+    if (v == "canopy_height")
+      span = 0.25
+    mod <- loess(value ~ day, data = x, span = span)
+    uday <- unique(x$day)
+    tibble(day = uday, value = predict(mod, newdata = uday))
+  }))
+
+fits <- tmp %>%
+  select(variable, fit) %>%
+  unnest(fit)
+
+# get data ready for plotting
+dat_nest <- dat_long %>%
+  group_by(cultivar) %>%
+  mutate(
+    series = as.character(as.integer(factor(paste((range, column))))),
+    n_cells = max(series),
+    n_days = length(unique(day)),
+    n_obs = n()
+  ) %>%
+  ungroup() %>%
+  group_by(cultivar, n_cells, n_days, n_obs) %>%
+  nest() %>%
+  ungroup()
+
+# plot function to apply to each cultivar
+plot_fn <- function(d) {
+  bind_rows(d, rngs) %>%
+  ggplot(aes(day, value, color = series)) +
+    geom_line(data = fits, color = "gray", size = 1.5) +
+    geom_point() +
+    facet_wrap(~ variable, scales = "free_y", nrow = 1) +
+    ggthemes::scale_color_tableau(guide = FALSE) +
+    theme_bw()
+}
+```
+
+```{r, eval=FALSE, echo=FALSE}
+save(dat_nest, fits, plot_fn, rngs, file = "output/traj_data.Rdata")
+```
+
+```{r, echo=FALSE}
+load("output/traj_data.Rdata")
+```
+
+Here is what the plot looks like for one cultivar in the data, "PI152651".
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI152651")$data)
+```
+
+The colors indicate different series for the same cultivar but in different grid cells. We see that the blue series for canopy height tracks right along with the overall data mean, while the orange series is lower. We also get a feel for how the other variables behave for this cultivar.
+
+What's more interesting now is to look at this plot for all cultivars. This is a good use case for trelliscope.
+
+```{r, eval=FALSE}
+dat_nestp <- dat_nest %>%
+  mutate(panel = map_plot(data, plot_fn))
+dat_nestp$cultivar[is.na(dat_nestp$cultivar)] <- "MISSING"
+
+library(trelliscopejs)
+
+trelliscope(dat_nestp, name = "variables_vs_time_by_cultivar",
+  path = "docs/trelliscope",
+  nrow = 2, width = 1200, height = 400)
+```
+
+<iframe src="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=130&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="800px" allowfullscreen></iframe>
+
+It is interesting just to spend some time paging through these plots and making some observations.
+
+There are many questions that arise when looking at the plots. One is: What accounts for the variability across different canopy height trajectories? It seems that in most cases canopy height tracks pretty closely together within cultivar, although that's not always the case. In cases where different series for the same cultivar are not in agreement, what can be attributed to this difference? Grid location? Other variables?
+
+Some cultivars have consistently higher trajectories than the overall average (e.g. PI157804, PI156268, PI329605, PI452692, PI514456, PI525049, PI569453).
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI514456")$data)
+```
+
+Some have consistently lower trajectories than average (e.g. PI180348, PI329518, PI655978).
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI655978")$data)
+```
+
+Some canopy height trajectories drop off toward the end (e.g. PI181080, PI195754, PI221548).
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI181080")$data)
+```
+
+Some canopy height trajectories have a lot more variability across series (e.g. PI176766, PI570145, PI576399).
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI176766")$data)
+```
+
+Some canopy height trajectories are just kind of strange (e.g. PI152971, PI153877, PI570076, PI576399).
+
+```{r, warning=FALSE, fig.width=10, fig.height=3.5}
+plot_fn(filter(dat_nest, cultivar == "PI152971")$data)
+```
+
+Notice how the orange series tracks with the others for canopy height but behaves very differently from the other series for the other variables.

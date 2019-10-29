@@ -1,0 +1,179 @@
+---
+title: "Raw Data Processing and Exploration"
+author: "Ryan Hafen"
+date: "2019-10-28"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+This document contains a brief look at the raw tabular Terra data provided by D3M.
+
+## Cultivars
+
+A file `cultivars_s4_2017.csv` is provided that contains all the combinations of `sitename` and `cultivar` that we will find in the datasets. 
+
+```
+> head cultivars_s4_2017.csv
+sitename,cultivar
+MAC Field Scanner Season 4 Range 3 Column 3,PI329465
+MAC Field Scanner Season 4 Range 3 Column 4,PI329465
+MAC Field Scanner Season 4 Range 3 Column 5,PI22913
+...
+```
+
+We will ignore this because we have all the information we need in the actual datasets.
+
+## Data files
+
+There are 5 data files, each of which contains the value of a measured variable associated with a given `sitename` and `day`.
+
+```{r}
+ff <- list.files("data/raw/terra_tabular", full.names = TRUE,
+  pattern = "_formatted")
+ff
+```
+
+Each file measures one of the following variables:
+
+- `canopy_height`
+- `leaf_angle_alpha`
+- `leaf_angle_beta`
+- `leaf_angle_chi`
+- `leaf_angle_mean`
+
+
+*While one can deduce that these have to do with [leaf angle distribution](https://en.wikipedia.org/wiki/Leaf_angle_distribution), it would be nice to get a description of how these variables were measured and how they can be interpreted.*
+
+### Reading the Data
+
+Let's read in all the files and in the process, convert the `sitename` variable (e.g. "MAC Field Scanner Season 4 Range 3 Column 3") into variables `range` and `column`.
+
+```{r, message=FALSE}
+library(tidyverse)
+
+fix_sitename <- function(x) {
+  tibble(
+    range = as.integer(gsub(".*Range ([0-9]+).*", "\\1", x)),
+    column = as.integer(gsub(".*Column ([0-9]+)", "\\1", x)))
+}
+
+dd <- map(ff, function(f) {
+  d <- read_csv(f)
+  bind_cols(fix_sitename(d$sitename), d) %>%
+    select(-sitename)
+})
+
+names(dd) <- gsub("s4_(.*)_formatted.csv", "\\1", basename(ff))
+```
+
+The object `dd` is a list of data frames for each file. For example, the first element is the data for `canopy_height`. 
+
+```{r}
+dd$canopy_height
+```
+
+### Exploration
+
+There are a few things we want to check about the data before we try to put it all together into one data frame.
+
+First, we are interested to know how many unique days there are in the data.
+
+```{r}
+map(dd, ~ select(., day)) %>%
+  bind_rows() %>%
+  distinct() %>%
+  arrange(day) %>%
+  pull(day)
+```
+
+There are 75 unique days, ranging from 12 to 133.
+
+Now, how many unique cultivar/range/column/day combinations are there in each dataset?
+
+```{r}
+map_df(dd, ~ group_by(., cultivar, range, column, day) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  summarise(n_unique = n(), nrow = sum(n)))
+```
+
+There are roughly 20k unique combinations for each dataset, but the total number of rows is around 35k for each, meaning that there are on average 1.75 measurements per cultivar/range/column/day combination.
+
+Why is there than one measurement per combination? Let's do the same tabulation but now looking at all cultivar/range/column/day/value combinations.
+
+```{r}
+map_df(dd, ~ group_by_all(.) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  summarise(n_unique = n(), nrow = sum(n)))
+```
+
+The numbers are exactly the same. This means that any time there is more than one value per cultivar/range/column/day, it's the same value. Is there any significance to the exact same value being reported more than once? This seems to me to be a data quality issue, but I could be missing something.
+
+Because the values are not different for any given cultivar/range/column/day, we will ignore repeated values, but to be safe we will keep track of the count of repeated values in case it comes in handy later. This will make it easier to join all the datasets.
+
+### Joining the Data
+
+To join the data, we will first define a function that collapses the data to each unique measurement for combinations of cultivar/range/column/day.
+
+```{r}
+prepare_data <- function(x) {
+  nm <- setdiff(names(x), c("range", "column", "day", "cultivar"))
+  xn <- x %>%
+    group_by_all() %>%
+    tally() %>%
+    rename(!!paste0(nm, "_n") := n)
+
+  nr1 <- xn %>%
+    select(cultivar, range, column, day) %>%
+    distinct() %>%
+    nrow()
+  nr2 <- nrow(xn)
+  if (nr1 != nr2)
+    stop("non-unique values")
+
+  xn
+}
+```
+
+Now, we will create the base of our final dataset by creating a data frame of all unique values of range/column/cultivar/day across all datasets.
+
+```{r}
+dat <- map(dd, ~ select(., cultivar, range, column, day)) %>%
+  bind_rows() %>%
+  distinct() %>%
+  arrange(cultivar, range, column, day)
+
+dat
+```
+
+Now we can join all the datasets to thie base dataset.
+
+```{r, message=FALSE}
+dat <- reduce(c(list(dat), map(dd, prepare_data)), left_join)
+
+dat
+```
+
+## Weather Data
+
+Weather data is also provided.
+
+```{r, message=FALSE}
+f <- "data/raw/terra_tabular/S4 Daily UA-MAC AZMET Weather Station.csv"
+weather <- read_csv(f)
+
+weather
+```
+
+It seems kind of silly to provide this data though with no way to map it to the other data provided. In the data we just processed, recall that the only variable about time that is provided is `day`, which is a value ranging from 12 to 133, with 75 unique values. The weather data has a `date` variable, but this has 95 unique values and spans a range of 148 days. So there is no logical way to figure out how to map weather to the data provided.
+
+## Summary of Questions
+
+To summarize some of the major questions that came out of the initial data processing:
+
+1. How were the variables measured and how should they be precisely interpreted?
+2. What are the questions that should be answered with this data? Do we want to predict a certain variable a certain amount of time in advance?
+3. How can we map the data provided to the weather data?
+
