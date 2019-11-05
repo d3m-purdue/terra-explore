@@ -475,7 +475,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-10-29
+<strong>Last updated:</strong> 2019-11-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -499,7 +499,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -566,10 +566,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongc4d6544"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> c4d6544 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcurtislisleterraexploretreefc3f18ec4e1804280f5e7df677de617f181be4fftargetblankfc3f18ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/curtislisle/terra-explore/tree/fc3f18ec4e1804280f5e7df677de617f181be4ff" target="_blank">fc3f18e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongc4d6544" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomcurtislisleterraexploretreefc3f18ec4e1804280f5e7df677de617f181be4fftargetblankfc3f18ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -579,19 +579,294 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    analysis/.DS_Store
     Ignored:    data/.DS_Store
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/trelliscope/.DS_Store
+    Ignored:    docs/trelliscope/lib/.DS_Store
 
 Untracked files:
-    Untracked:  analysis/data.Rmd
-    Untracked:  analysis/exploration.Rmd
-    Untracked:  code/explore.R
     Untracked:  data/raw/
-    Untracked:  docs/figure/
-    Untracked:  docs/trelliscope/
-    Untracked:  output/s4_data.rds
-    Untracked:  output/traj_data.Rdata
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Modified:   analysis/exploration.Rmd
+
+Staged changes:
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/cogData.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/displayObj.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/MISSING.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI145619.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI145626.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI145633.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI146890.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152651.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152694.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152727.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152728.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152730.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152733.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152751.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152771.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152816.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152923.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152961.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI152971.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI153877.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI154844.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI154846.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI154944.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI154987.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI154988.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI155516.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI155760.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI155885.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156178.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156217.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156268.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156326.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156487.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI156890.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI157030.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI157035.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI157804.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI170787.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI175919.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI176766.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI179749.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI180348.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI181080.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI181083.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI195754.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI196583.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI196586.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI196598.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI19770.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI213900.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI217691.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI221548.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI221651.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI22913.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI251672.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI253986.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI255744.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI257599.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI257600.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI267573.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI276837.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI297155.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI297171.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI302252.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI303658.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329286.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329299.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329300.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329310.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329319.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329326.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329333.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329338.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329351.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329394.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329403.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329465.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329471.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329473.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329478.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329480.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329506.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329511.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329517.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329518.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329519.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329541.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329545.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329546.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329550.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329569.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329570.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329584.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329585.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329605.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329614.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329618.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329632.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329644.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329645.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329646.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329665.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329673.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329702.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329710.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329711.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329841.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329843.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329864.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI329865.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330169.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330181.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330182.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330184.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330185.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330195.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330196.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330199.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330796.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330803.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330807.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330833.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI330858.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI337689.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI35038.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI452619.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI452692.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI453696.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI455221.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI455301.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI455307.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI505717.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI505722.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI505735.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI506069.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI506122.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI513898.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI514456.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI521019.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI521152.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI524475.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI525049.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI526905.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI527045.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI533792.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI533998.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI534120.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI534165.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI535783.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI535794.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI535795.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI535796.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI540518.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI542718.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562730.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562781.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562897.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562970.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562971.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562981.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562982.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562985.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562990.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562991.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562994.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562997.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI562998.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563002.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563006.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563020.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563022.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563196.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563295.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563330.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563332.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563338.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563350.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI563355.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI564163.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI566819.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569090.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569097.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569148.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569244.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569264.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569416.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569418.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569419.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569422.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569423.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569435.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569443.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569444.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569445.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569447.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569452.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569453.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569454.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569455.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569457.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569458.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569459.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569460.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569462.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI569886.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570031.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570038.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570042.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570047.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570071.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570074.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570075.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570076.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570085.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570087.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570090.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570096.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570106.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570109.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570114.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570145.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570254.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570373.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570388.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570393.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570400.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI570431.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI576399.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI576401.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI583832.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585452.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585454.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585461.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585467.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585577.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585608.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585954.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI585961.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI586435.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI586443.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI586541.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI593916.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI619807.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI620157.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI63715.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641807.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641810.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641815.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641821.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641824.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641825.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641829.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641830.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641835.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641836.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641860.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI641892.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI643008.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI646242.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI646251.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI646266.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI651495.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI651496.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI651497.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI653616.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI655972.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI655978.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI655981.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI655983.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI656015.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI656026.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI656035.jsonp
+    New:        docs/trelliscope/appfiles/displays/common/grid_location_by_cultivar/jsonp/PI92270.jsonp
+    Modified:   docs/trelliscope/appfiles/displays/displayList.jsonp
+    Modified:   docs/trelliscope/lib/trelliscopejs_widget-0.3.0/trelliscope.min.js
+    New:        output/s4_data.rds
+    New:        output/traj_data.Rdata
 
 </code></pre>
 <p>
@@ -604,9 +879,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/analysis/exploration.Rmd" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+<td>
+Commit docs
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/curtislisle/terra-explore/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/exploration.html" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+<td>
+Commit docs
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -635,7 +970,7 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 #   leaf_angle_mean &lt;dbl&gt;, leaf_angle_mean_n &lt;int&gt;</code></pre>
 <div id="grid-exploration" class="section level2">
 <h2>Grid Exploration</h2>
-<p>There are <code>dat %&gt;% select(range, column) %&gt;% distinct()</code> grid cells in total, defined by <code>range</code> and <code>column</code>.</p>
+<p>There are 791 grid cells in total, defined by <code>range</code> and <code>column</code>.</p>
 <div id="unique-cultivars-per-grid-cell" class="section level3">
 <h3>Unique cultivars per grid cell</h3>
 <p>A simple check to do up front is to see if cultivar is unique per grid cell.</p>
@@ -689,6 +1024,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb7-3" title="3"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;proportion&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;number of grid cells&quot;</span>)</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+Past versions of unnamed-chunk-3-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-3-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>There are 94 grid cells with NA as the cultivar, but for known cultivars the maximum is presence in 6 cells, with presence in 2 cells being the most common (about 70% of cultivars are in 2 cells).</p>
 </div>
 <div id="measurements-per-grid-cell" class="section level3">
@@ -726,6 +1098,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb10-8" title="8"><span class="st">  </span><span class="kw">scale_fill_viridis_c</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-5-1.png" width="888" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-5-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Canopy height has data for range = 2 where the rest do not. It turns out that all of the cases were range = 2 have cultivar as NA. Also, Canopy does not have data for range = 54 while the rest do. Also, at range = 30, canopy height has columns with a lot of recorded data (up to 57 for column 5).</p>
 <p>There is no column 16 for canopy height and for the rest of the variables column 16 is pretty sparse.</p>
 <p>The higher-range data seem to have more counts overall. We can check this by computing the marginal counts.</p>
@@ -742,6 +1151,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb11-7" title="7"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>variable) <span class="op">+</span></a>
 <a class="sourceLine" id="cb11-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-6-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>As was hinted at in the previous heatmap, there are more measurements in the higher ranges.</p>
 <p>Similarly for columns:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">column_ct &lt;-<span class="st"> </span>dat_long <span class="op">%&gt;%</span></a>
@@ -753,6 +1199,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>variable) <span class="op">+</span></a>
 <a class="sourceLine" id="cb12-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-7-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>There are more measurements of canopy height overall than the other variables. Columns 1 and 2 have more measurements than the other columns for all veriables except canopy height, where column 1 has fewer measurements.</p>
 </div>
 <div id="co-occurrence-of-variables" class="section level3">
@@ -767,6 +1250,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb13-8" title="8"><span class="st">  </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-8-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-8-1">
+Past versions of unnamed-chunk-8-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-8-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-8-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>From this we see that the vast majority of grid cells have at least one measurement of all five variables.</p>
 <p>Now we might be interested in knowing how many days there are in each grid cell for which we have measurements for all 5 variables.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">cell_n_full_days &lt;-<span class="st"> </span>dat_long <span class="op">%&gt;%</span></a>
@@ -784,6 +1304,43 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb14-13" title="13">    <span class="dt">x =</span> <span class="st">&quot;proportion&quot;</span>,</a>
 <a class="sourceLine" id="cb14-14" title="14">    <span class="dt">y =</span> <span class="st">&quot;number of fully co-occurrent days&quot;</span>)</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-9-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here a plot of the grid isn’t that interesting, but instead we are looking at a plot of the distribution of the number of days. This shows that about 50% of grid cells have 15 or more days of fully co-occurrent variable measurements, but some grid sells have 5 or fewer days that are fully co-occurrent.</p>
 </div>
 <div id="meaurements-over-time" class="section level3">
@@ -846,40 +1403,283 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <a class="sourceLine" id="cb15-54" title="54"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>variable, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>, <span class="dt">nrow =</span> <span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb15-55" title="55"><span class="st">    </span>ggthemes<span class="op">::</span><span class="kw">scale_color_tableau</span>(<span class="dt">guide =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb15-56" title="56"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb15-57" title="57">}</a></code></pre></div>
+<a class="sourceLine" id="cb15-57" title="57">}</a>
+<a class="sourceLine" id="cb15-58" title="58"></a>
+<a class="sourceLine" id="cb15-59" title="59">plot_grid_fn &lt;-<span class="st"> </span><span class="cf">function</span>(d) {</a>
+<a class="sourceLine" id="cb15-60" title="60">  <span class="kw">select</span>(d, range, column, series) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">distinct</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb15-61" title="61"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(column, range, <span class="dt">fill =</span> series)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-62" title="62"><span class="st">    </span><span class="kw">geom_tile</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="dv">1</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-63" title="63"><span class="st">    </span>ggthemes<span class="op">::</span><span class="kw">scale_fill_tableau</span>(<span class="dt">guide =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-64" title="64"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-65" title="65"><span class="st">    </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">17</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-66" title="66"><span class="st">    </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">55</span>))</a>
+<a class="sourceLine" id="cb15-67" title="67">}</a></code></pre></div>
 <p>Here is what the plot looks like for one cultivar in the data, “PI152651”.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI152651&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI152651&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-14-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-14-1">
+Past versions of unnamed-chunk-14-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-14-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-14-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">plot_grid_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI152651&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
+<p><img src="figure/exploration.Rmd/unnamed-chunk-14-2.png" width="960" style="display: block; margin: auto;" /></p>
 <p>The colors indicate different series for the same cultivar but in different grid cells. We see that the blue series for canopy height tracks right along with the overall data mean, while the orange series is lower. We also get a feel for how the other variables behave for this cultivar.</p>
 <p>What’s more interesting now is to look at this plot for all cultivars. This is a good use case for trelliscope.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">dat_nestp &lt;-<span class="st"> </span>dat_nest <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">panel =</span> <span class="kw">map_plot</span>(data, plot_fn))</a>
-<a class="sourceLine" id="cb17-3" title="3">dat_nestp<span class="op">$</span>cultivar[<span class="kw">is.na</span>(dat_nestp<span class="op">$</span>cultivar)] &lt;-<span class="st"> &quot;MISSING&quot;</span></a>
-<a class="sourceLine" id="cb17-4" title="4"></a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="kw">library</span>(trelliscopejs)</a>
-<a class="sourceLine" id="cb17-6" title="6"></a>
-<a class="sourceLine" id="cb17-7" title="7"><span class="kw">trelliscope</span>(dat_nestp, <span class="dt">name =</span> <span class="st">&quot;variables_vs_time_by_cultivar&quot;</span>,</a>
-<a class="sourceLine" id="cb17-8" title="8">  <span class="dt">path =</span> <span class="st">&quot;docs/trelliscope&quot;</span>,</a>
-<a class="sourceLine" id="cb17-9" title="9">  <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">width =</span> <span class="dv">1200</span>, <span class="dt">height =</span> <span class="dv">400</span>)</a></code></pre></div>
-<iframe src="trelliscope/index.html#display=variables_vs_time_by_cultivar&amp;pg=130&amp;arr=row&amp;nrow=2&amp;ncol=1&amp;labels=cultivar&amp;sort=cultivar;asc&amp;filter=&amp;sidebar=&amp;fv=" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="800px" allowfullscreen>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">dat_nestp &lt;-<span class="st"> </span>dat_nest <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">panel =</span> <span class="kw">map_plot</span>(data, plot_fn))</a>
+<a class="sourceLine" id="cb18-3" title="3">dat_nestp<span class="op">$</span>cultivar[<span class="kw">is.na</span>(dat_nestp<span class="op">$</span>cultivar)] &lt;-<span class="st"> &quot;MISSING&quot;</span></a>
+<a class="sourceLine" id="cb18-4" title="4"></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="kw">library</span>(trelliscopejs)</a>
+<a class="sourceLine" id="cb18-6" title="6"></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="kw">trelliscope</span>(dat_nestp, <span class="dt">name =</span> <span class="st">&quot;variables_vs_time_by_cultivar&quot;</span>,</a>
+<a class="sourceLine" id="cb18-8" title="8">  <span class="dt">path =</span> <span class="st">&quot;docs/trelliscope&quot;</span>,</a>
+<a class="sourceLine" id="cb18-9" title="9">  <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">width =</span> <span class="dv">1200</span>, <span class="dt">height =</span> <span class="dv">400</span>)</a>
+<a class="sourceLine" id="cb18-10" title="10"></a>
+<a class="sourceLine" id="cb18-11" title="11">dat_nestp2 &lt;-<span class="st"> </span>dat_nest <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb18-12" title="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">panel =</span> <span class="kw">map_plot</span>(data, plot_grid_fn))</a>
+<a class="sourceLine" id="cb18-13" title="13">dat_nestp2<span class="op">$</span>cultivar[<span class="kw">is.na</span>(dat_nestp2<span class="op">$</span>cultivar)] &lt;-<span class="st"> &quot;MISSING&quot;</span></a>
+<a class="sourceLine" id="cb18-14" title="14"></a>
+<a class="sourceLine" id="cb18-15" title="15"><span class="kw">trelliscope</span>(dat_nestp2, <span class="dt">name =</span> <span class="st">&quot;grid_location_by_cultivar&quot;</span>,</a>
+<a class="sourceLine" id="cb18-16" title="16">  <span class="dt">path =</span> <span class="st">&quot;docs/trelliscope&quot;</span>,</a>
+<a class="sourceLine" id="cb18-17" title="17">  <span class="dt">ncol =</span> <span class="dv">6</span>, <span class="dt">width =</span> <span class="dv">260</span>, <span class="dt">height =</span> <span class="dv">600</span>)</a></code></pre></div>
+<p>The display below is interactive. You can click on the various buttons to arrange, sort, filter, and page through the visualizations. You can open it in a full browser window by clicking <a href="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=1&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" target="_blank">here</a>.</p>
+<iframe src="trelliscope/index.html#display=variables_vs_time_by_cultivar&amp;pg=1&amp;arr=row&amp;nrow=2&amp;ncol=1&amp;labels=cultivar&amp;sort=cultivar;asc&amp;filter=&amp;sidebar=&amp;fv=" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="800px" allowfullscreen>
 </iframe>
 <p>It is interesting just to spend some time paging through these plots and making some observations.</p>
 <p>There are many questions that arise when looking at the plots. One is: What accounts for the variability across different canopy height trajectories? It seems that in most cases canopy height tracks pretty closely together within cultivar, although that’s not always the case. In cases where different series for the same cultivar are not in agreement, what can be attributed to this difference? Grid location? Other variables?</p>
 <p>Some cultivars have consistently higher trajectories than the overall average (e.g. PI157804, PI156268, PI329605, PI452692, PI514456, PI525049, PI569453).</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI514456&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI514456&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-16-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-16-1">
+Past versions of unnamed-chunk-16-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-16-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-16-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Some have consistently lower trajectories than average (e.g. PI180348, PI329518, PI655978).</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI655978&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI655978&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-17-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-17-1">
+Past versions of unnamed-chunk-17-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-17-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-17-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Some canopy height trajectories drop off toward the end (e.g. PI181080, PI195754, PI221548).</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI181080&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI181080&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-18-1">
+Past versions of unnamed-chunk-18-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-18-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-18-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Some canopy height trajectories have a lot more variability across series (e.g. PI176766, PI570145, PI576399).</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI176766&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI176766&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-19-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-19-1">
+Past versions of unnamed-chunk-19-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-19-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-19-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Some canopy height trajectories are just kind of strange (e.g. PI152971, PI153877, PI570076, PI576399).</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI152971&quot;</span>)<span class="op">$</span>data)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">plot_fn</span>(<span class="kw">filter</span>(dat_nest, cultivar <span class="op">==</span><span class="st"> &quot;PI152971&quot;</span>)<span class="op">$</span>data[[<span class="dv">1</span>]])</a></code></pre></div>
 <p><img src="figure/exploration.Rmd/unnamed-chunk-20-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-20-1">
+Past versions of unnamed-chunk-20-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-20-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/curtislisle/terra-explore/blob/fc3f18ec4e1804280f5e7df677de617f181be4ff/docs/figure/exploration.Rmd/unnamed-chunk-20-1.png" target="_blank">fc3f18e</a>
+</td>
+<td>
+Ryan Hafen
+</td>
+<td>
+2019-10-29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Notice how the orange series tracks with the others for canopy height but behaves very differently from the other series for the other variables.</p>
 <br>
 <p>
@@ -888,7 +1688,7 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>R version 3.5.2 (2018-12-20)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
 Running under: macOS Mojave 10.14.6
@@ -924,11 +1724,11 @@ loaded via a namespace (and not attached):
 [37] hms_0.5.1         digest_0.6.21     stringi_1.4.3    
 [40] grid_3.5.2        rprojroot_1.3-2   cli_1.1.0        
 [43] tools_3.5.2       magrittr_1.5      lazyeval_0.2.2   
-[46] crayon_1.3.4      pkgconfig_2.0.3   zeallot_0.1.0    
-[49] xml2_1.2.2        lubridate_1.7.4   assertthat_0.2.1 
-[52] rmarkdown_1.16.2  httr_1.4.1        rstudioapi_0.10  
-[55] R6_2.4.0          nlme_3.1-141      git2r_0.26.1     
-[58] compiler_3.5.2   </code></pre>
+[46] crayon_1.3.4      whisker_0.4       pkgconfig_2.0.3  
+[49] zeallot_0.1.0     xml2_1.2.2        lubridate_1.7.4  
+[52] assertthat_0.2.1  rmarkdown_1.16.2  httr_1.4.1       
+[55] rstudioapi_0.10   R6_2.4.0          nlme_3.1-141     
+[58] git2r_0.26.1      compiler_3.5.2   </code></pre>
 </div>
 </div>
 </div>

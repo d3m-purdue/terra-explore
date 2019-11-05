@@ -18,7 +18,7 @@ dat
 
 ## Grid Exploration
 
-There are `dat %>% select(range, column) %>% distinct()` grid cells in total, defined by `range` and `column`.
+There are `r dat %>% select(range, column) %>% distinct() %>% nrow()` grid cells in total, defined by `range` and `column`.
 
 ### Unique cultivars per grid cell
 
@@ -228,10 +228,20 @@ plot_fn <- function(d) {
     ggthemes::scale_color_tableau(guide = FALSE) +
     theme_bw()
 }
+
+plot_grid_fn <- function(d) {
+  select(d, range, column, series) %>% distinct() %>%
+  ggplot(aes(column, range, fill = series)) +
+    geom_tile(width = 1, height = 1, color = "white") +
+    ggthemes::scale_fill_tableau(guide = FALSE) +
+    theme_bw() +
+    xlim(c(1, 17)) +
+    ylim(c(1, 55))
+}
 ```
 
 ```{r, eval=FALSE, echo=FALSE}
-save(dat_nest, fits, plot_fn, rngs, file = "output/traj_data.Rdata")
+save(dat_nest, fits, plot_fn, plot_grid_fn, rngs, file = "output/traj_data.Rdata")
 ```
 
 ```{r, echo=FALSE}
@@ -241,7 +251,8 @@ load("output/traj_data.Rdata")
 Here is what the plot looks like for one cultivar in the data, "PI152651".
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI152651")$data)
+plot_fn(filter(dat_nest, cultivar == "PI152651")$data[[1]])
+plot_grid_fn(filter(dat_nest, cultivar == "PI152651")$data[[1]])
 ```
 
 The colors indicate different series for the same cultivar but in different grid cells. We see that the blue series for canopy height tracks right along with the overall data mean, while the orange series is lower. We also get a feel for how the other variables behave for this cultivar.
@@ -258,9 +269,19 @@ library(trelliscopejs)
 trelliscope(dat_nestp, name = "variables_vs_time_by_cultivar",
   path = "docs/trelliscope",
   nrow = 2, width = 1200, height = 400)
+
+dat_nestp2 <- dat_nest %>%
+  mutate(panel = map_plot(data, plot_grid_fn))
+dat_nestp2$cultivar[is.na(dat_nestp2$cultivar)] <- "MISSING"
+
+trelliscope(dat_nestp2, name = "grid_location_by_cultivar",
+  path = "docs/trelliscope",
+  ncol = 6, width = 260, height = 600)
 ```
 
-<iframe src="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=130&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="800px" allowfullscreen></iframe>
+The display below is interactive. You can click on the various buttons to arrange, sort, filter, and page through the visualizations. You can open it in a full browser window by clicking <a href="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=1&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" target="_blank">here</a>.
+
+<iframe src="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=1&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="600px" width="800px" allowfullscreen></iframe>
 
 It is interesting just to spend some time paging through these plots and making some observations.
 
@@ -269,31 +290,31 @@ There are many questions that arise when looking at the plots. One is: What acco
 Some cultivars have consistently higher trajectories than the overall average (e.g. PI157804, PI156268, PI329605, PI452692, PI514456, PI525049, PI569453).
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI514456")$data)
+plot_fn(filter(dat_nest, cultivar == "PI514456")$data[[1]])
 ```
 
 Some have consistently lower trajectories than average (e.g. PI180348, PI329518, PI655978).
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI655978")$data)
+plot_fn(filter(dat_nest, cultivar == "PI655978")$data[[1]])
 ```
 
 Some canopy height trajectories drop off toward the end (e.g. PI181080, PI195754, PI221548).
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI181080")$data)
+plot_fn(filter(dat_nest, cultivar == "PI181080")$data[[1]])
 ```
 
 Some canopy height trajectories have a lot more variability across series (e.g. PI176766, PI570145, PI576399).
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI176766")$data)
+plot_fn(filter(dat_nest, cultivar == "PI176766")$data[[1]])
 ```
 
 Some canopy height trajectories are just kind of strange (e.g. PI152971, PI153877, PI570076, PI576399).
 
 ```{r, warning=FALSE, fig.width=10, fig.height=3.5}
-plot_fn(filter(dat_nest, cultivar == "PI152971")$data)
+plot_fn(filter(dat_nest, cultivar == "PI152971")$data[[1]])
 ```
 
 Notice how the orange series tracks with the others for canopy height but behaves very differently from the other series for the other variables.
