@@ -208,13 +208,15 @@ fits <- tmp %>%
 dat_nest <- dat_long %>%
   group_by(cultivar) %>%
   mutate(
-    series = as.character(as.integer(factor(paste((range, column))))),
+    series = as.character(as.integer(factor(paste(range, column)))),
     n_cells = max(series),
     n_days = length(unique(day)),
-    n_obs = n()
+    n_obs = n(),
+    rows = paste(paste0("_", sort(unique(range)), "_"), collapse = ","),
+    columns = paste(paste0("_", sort(unique(column)), "_"), collapse = ",")
   ) %>%
   ungroup() %>%
-  group_by(cultivar, n_cells, n_days, n_obs) %>%
+  group_by(cultivar, n_cells, n_days, n_obs, rows, columns) %>%
   nest() %>%
   ungroup()
 
@@ -268,7 +270,8 @@ library(trelliscopejs)
 
 trelliscope(dat_nestp, name = "variables_vs_time_by_cultivar",
   path = "docs/trelliscope",
-  nrow = 2, width = 1200, height = 400)
+  nrow = 2, width = 1200, height = 400,
+  thumb = TRUE)
 
 dat_nestp2 <- dat_nest %>%
   mutate(panel = map_plot(data, plot_grid_fn))
@@ -276,7 +279,8 @@ dat_nestp2$cultivar[is.na(dat_nestp2$cultivar)] <- "MISSING"
 
 trelliscope(dat_nestp2, name = "grid_location_by_cultivar",
   path = "docs/trelliscope",
-  ncol = 6, width = 260, height = 600)
+  ncol = 6, width = 260, height = 600,
+  thumb = TRUE)
 ```
 
 The display below is interactive. You can click on the various buttons to arrange, sort, filter, and page through the visualizations. You can open it in a full browser window by clicking <a href="trelliscope/index.html#display=variables_vs_time_by_cultivar&pg=1&arr=row&nrow=2&ncol=1&labels=cultivar&sort=cultivar;asc&filter=&sidebar=&fv=" target="_blank">here</a>.
